@@ -1,0 +1,147 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "llrl",
+    "patterns": [
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#constants"
+        },
+        {
+            "include": "#names"
+        },
+        {
+            "include": "#brackets"
+        }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "begin": ";",
+                    "end": "\\n",
+                    "name": "comment.line"
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "match": "\\b(no-implicit-std|import|export|(c\\-|transparent\\-)?function|builtin\\-op|macro|(sealed\\-)?class|instance|(value\\-|c\\-)?data|builtin\\-type)\\b",
+                    "name": "keyword.other"
+                },
+                {
+                    "match": "\\b(begin|return|gensym|lambda|(s/)?match|for|case1?|let1?|with1?|if(\\-match1?)?|cond|else|loop|while(\\-match1?)?|when(\\-match1?)?|is|eq|ne|lt|le|gt|ge)(\\?|\\*|\\b)",
+                    "name": "keyword.control"
+                },
+                {
+                    "match": "\\b(not|and|or)\\b|(&&|\\|\\|)",
+                    "name": "keyword.operator.logical"
+                },
+                {
+                    "match": "'|,@|,|`|\\\\",
+                    "name": "keyword.operator.quote"
+                },
+                {
+                    "match": "\\|>|\\->|\\?|!|=|\\^[0-9]+|%[0-9]+",
+                    "name": "keyword.operator.other"
+                },
+                {
+                    "match": "\\b(forall|where|unit)\\b",
+                    "name": "storage.type"
+                },
+                {
+                    "match": "\\b(test-modules?|test-backends?|test-stds?|pass|fail|type\\-of|kind\\-of|assert(\\-is|\\-eq|\\-ne)?)(\\?|\\b)",
+                    "name": "support.function"
+                }
+            ]
+        },
+        "strings": {
+            "name": "string.quoted.double.llrl",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.llrl",
+                    "match": "\\\\."
+                }
+            ]
+        },
+        "constants": {
+            "patterns": [
+                {
+                    "match": "(#t|#f)",
+                    "name": "constant.language.boolean"
+                },
+                {
+                    "match": "\\b(some|none|ok|err|syntax|left|right|box|ref)\\b",
+                    "name": "constant.language.other"
+                },
+                {
+                    "match": "#\\\\(\\\\.|.)",
+                    "name": "string.quoted.single.llrl"
+                },
+                {
+                    "match": "[-!$%&*+\\./0-9<=>\\?A-Z^_a-z|]*:[-!$%&*+\\./0-9<=>\\?A-Z^_a-z|]*",
+                    "name": "constant.other"
+                },
+                {
+                    "match": "\\-?\\b([0-9][0-9_]*(\\.[0-9][0-9_]*)?)([eE](\\+|-)?[0-9][0-9_]*)?\\b",
+                    "name": "constant.numeric"
+                }
+            ]
+        },
+        "names": {
+            "patterns": [
+                {
+                    "match": "(_\\.)?[A-Z]([-!$%&*+\\./0-9:<=>\\?A-Z^_a-z|])*",
+                    "name": "entity.name.type"
+                },
+                {
+                    "match": "\\$[-!$%&*+\\./0-9:<=>\\?A-Z^_a-z|]*",
+                    "name": "entity.name.function.preprocessor"
+                },
+                {
+                    "match": "[-!$%&*+\\./0-9:<=>\\?A-Z^_a-z|]+",
+                    "name": "entity.name"
+                }
+            ]
+        },
+        "brackets": {
+            "patterns": [
+                {
+                    "match": "\\(",
+                    "name": "punctuation.brackets.paren.begin"
+                },
+                {
+                    "match": "\\)",
+                    "name": "punctuation.brackets.paren.end"
+                },
+                {
+                    "match": "\\[",
+                    "name": "punctuation.brackets.bracket.begin"
+                },
+                {
+                    "match": "\\]",
+                    "name": "punctuation.brackets.bracket.end"
+                },
+                {
+                    "match": "\\{",
+                    "name": "punctuation.brackets.curly.begin"
+                },
+                {
+                    "match": "\\}",
+                    "name": "punctuation.brackets.curly.end"
+                }
+            ]
+        }
+    },
+    "scopeName": "source.llrl"
+}

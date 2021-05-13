@@ -34,7 +34,7 @@
         "keywords": {
             "patterns": [
                 {
-                    "match": "\\b(no-implicit-std|import|export|(c\\-|transparent\\-)?function|builtin\\-op|macro|(sealed\\-)?class|instance|(value\\-|c\\-)?data|builtin\\-type)\\b",
+                    "match": "\\b(no-implicit-std|import|export|(c\\-|transparent\\-)?function|builtin\\-op|macro|(sealed\\-)?class|instance|(value\\-|c\\-)?data|builtin\\-type|derive)\\b",
                     "name": "keyword.other"
                 },
                 {
